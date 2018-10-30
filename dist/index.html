@@ -114,7 +114,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
-                                 <span class="ml-1">Agnes K <i class="mdi mdi-chevron-down"></i> </span>
+                                 <span class="ml-1">Admin<i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
                                 <!-- item-->
@@ -161,7 +161,7 @@
                         <li class="float-left">
                             <a href="#" class="logo">
                                 <span class="logo-lg" style="font-size: 30px;color: #05b4ac;">
-                                	惠水县财政局一折通数据平台管理端
+                                	一折通数据平台管理端
                                     <!--<img src="assets/images/logo.png" alt="" height="20">-->
                                 </span>
                                 <span class="logo-sm">
@@ -226,7 +226,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-cube-outline"></i>Components</a>
+                                <a href="#"><i class="mdi mdi-cube-outline"></i>权限管理</a>
                                 <ul class="submenu">
                                     <li>
                                         <a href="calendar.html">Calendar</a>
@@ -279,7 +279,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-buffer"></i>Authentication</a>
+                                <a href="#"><i class="mdi mdi-buffer"></i>资源管理</a>
                                 <ul class="submenu">
                                     <li><a href="auth-login.html">Log In</a></li>
                                     <li><a href="auth-register.html">Register</a></li>
@@ -291,7 +291,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-file-multiple"></i>Pages</a>
+                                <a href="#"><i class="mdi mdi-file-multiple"></i>系统设置</a>
                                 <ul class="submenu">
                                     <li><a href="pages-invoice.html">Invoice</a></li>
                                     <li><a href="pages-pricing.html">Pricing</a></li>
@@ -327,130 +327,63 @@
                 <!-- End page title box -->
                 
                 <div class="row">
-                    <div class="col-xl-4">
-
-                        <div class="card-box">
-                            <div class="dropdown float-right">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Upload</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                </div>
+                	<div class="col-xl-3">
+                		<div class="card-box widget-chart-one gradient-success bx-shadow-lg">
+                			<div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
+                				<i class="mdi mdi-city "></i>
+                			</div>
+                            <div class="widget-chart-one-content text-center">
+                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">机构数量</p>
+                                <h3 class="text-white">49</h3>
                             </div>
-                            <h4 class="header-title">Daily Sales</h4>
-                            <p class="text-muted">March 26 - April 01</p>
-                            <div class="mb-3 mt-4">
-                                <div class="float-right d-none d-xl-block">
-                                    <img src="assets/images/cards/visa.png" alt="user-card" height="28" />
-                                    <img src="assets/images/cards/master.png" alt="user-card" height="28" />
-                                    <img src="assets/images/cards/american-express.png" alt="user-card" height="28" />
-                                </div>
-                                <h2 class="font-weight-light">$8,459.56</h2>
+                    	</div> <!-- end card-box-->
+                	</div>
+                	<div class="col-xl-3">
+                		<div class="card-box widget-chart-one gradient-info bx-shadow-lg">
+                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
+                				<i class="mdi mdi-apps"></i>
+                			</div>
+                            <div class="widget-chart-one-content text-center">
+                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴种类</p>
+                                <h3 class="text-white">300</h3>
                             </div>
-                            <div class="chartjs-chart dash-sales-chart">
-                                <canvas id="sales-chart"></canvas>
+                    	</div> <!-- end card-box-->
+                	</div>
+                	<div class="col-xl-3">
+                		<div class="card-box widget-chart-one gradient-success bx-shadow-lg">
+                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
+                				<i class="mdi mdi-account-multiple "></i>
+                			</div>
+                            <div class="widget-chart-one-content text-center">
+                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴户数</p>
+                                <h3 class="text-white">200000</h3>
                             </div>
-                        </div><!-- end card-box-->
-
-                        <div class="card-box widget-chart-one gradient-success bx-shadow-lg">
-                            <div class="float-left">
-                                <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
-                                        data-fgColor="#ffffff" data-bgcolor="rgba(255,255,255,0.2)" value="49" data-skin="tron" data-angleOffset="180"
-                                        data-readOnly=true data-thickness=".1"/>
+                    	</div> <!-- end card-box-->
+                		</div>
+                	<div class="col-xl-3">
+                		<div class="card-box widget-chart-one gradient-primary bx-shadow-lg">
+                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
+                				<i class="mdi mdi-cash "></i>
+                			</div>
+                            <div class="widget-chart-one-content text-center">
+                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴金额</p>
+                                <h3 class="text-white">500000</h3>
                             </div>
-                            <div class="widget-chart-one-content text-right">
-                                <p class="text-white mb-0 mt-2">Statistics</p>
-                                <h3 class="text-white">$714</h3>
-                            </div>
-                        </div> <!-- end card-box-->
-
-                    </div> <!-- end col -->
-
-                    <div class="col-xl-4">
-                        <div class="card-box">
-                            <div class="dropdown float-right">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Upload</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                </div>
-                            </div>
-                            <h4 class="header-title mb-3">Statistics</h4>
-                            <div class="row text-center">
-                                <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">4,335</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
-                                </div>
-                                <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">874</h3>
-                                    <p class="text-muted text-overflow">Open Compaign</p>
-                                </div>
-                                <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">2,548</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
-                                </div>
-                            </div>
-                            <div class="chartjs-chart high-performing-product">
-                                <canvas id="high-performing-product"></canvas>    
-                            </div>            
-                        </div> <!-- end card-box-->
-                    </div> <!-- end col -->
-
-                    <div class="col-xl-4">
-                        <div class="card-box">
-                            <div class="dropdown float-right">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Upload</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                </div>
-                            </div>
-                            <h4 class="header-title mb-3">Total Revenue</h4>
-                            <div class="row text-center">
-                                <div class="col-6 mb-3">
-                                    <h3 class="font-weight-light">8,459</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <h3 class="font-weight-light">584</h3>
-                                    <p class="text-muted text-overflow">Open Compaign</p>
-                                </div>
-                            </div>
-                            <div class="chartjs-chart conversion-chart">
-                                <canvas id="conversion-chart"></canvas>
-                            </div>
-                        </div>  <!-- end card-box-->
-                    </div> <!-- end col -->
+                    	</div> <!-- end card-box-->
+                	</div>
+                    
+					
+					
+                    
+                    
                 </div>
                 <!-- end row -->
 
 
                 <div class="row">
-                    <div class="col-xl-3">
+
+
+                    <div class="col-xl-12">
                         <div class="card-box">
                             <div class="dropdown float-right">
                                 <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
@@ -467,76 +400,52 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                 </div>
                             </div>
-                            <h4 class="header-title">My Wallets</h4>
-                            <div class="mb-4 mt-4">
-                                <h2 class="font-weight-normal mb-2">$6,584.22 <i class="mdi mdi-arrow-up text-success"></i></h2>
-                                <p class="text-muted">March 26 - April 01</p>
-                            </div>
-
-                            <div class="mb-3 chartjs-chart dash-doughnut">
-                                <canvas id="doughnut"></canvas>
-                            </div>
-
-                            <div>
-                                <p><i class="mdi mdi-stop-circle-outline text-success"></i> Wallet Ballance <span class="float-right font-weight-normal">$825.25</span></p>
-                                <p><i class="mdi mdi-stop-circle-outline text-danger"></i> Travels <span class="float-right font-weight-normal">$1,254</span></p>
-                                <p class="mb-0"><i class="mdi mdi-stop-circle-outline"></i> Foods & Drinks <span class="float-right font-weight-normal">$89.66</span></p>
-                            </div>
-                        </div> <!-- end card-box -->
-                    </div> <!-- end col -->
-
-                    <div class="col-xl-6">
-                        <div class="card-box">
-                            <div class="dropdown float-right">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="mdi mdi-dots-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Download</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Upload</a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                </div>
-                            </div>
-                            <h4 class="header-title mb-3">Transaction History</h4>
+                            <h4 class="header-title mb-3">机构信息</h4>
 
                             <div class="table-responsive">
                                 <table class="table table-centered table-hover mb-0" id="datatable">
                                     <thead>
                                     <tr>
-                                        <th class="border-top-0">Name</th>
-                                        <th class="border-top-0">Card</th>
-                                        <th class="border-top-0">Date</th>
-                                        <th class="border-top-0">Amount</th>
-                                        <th class="border-top-0">Status</th>
+                                        <th class="border-top-0">名称</th>
+                                        <th class="border-top-0">补贴种类</th>
+                                        <th class="border-top-0">补贴户数</th>
+                                        <th class="border-top-0">补贴金额</th>
+                                        <th class="border-top-0">机构状态</th>
+                                        <th class="border-top-0">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <img src="assets/images/users/avatar-2.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Imelda J. Stanberry</span>
+                                        	<i class="mdi mdi-city "></i>
+                                            <span class="ml-2">机构1</span>
                                         </td>
                                         <td>
-                                            <img src="assets/images/cards/visa.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 3256</span>
+                                        	<i class="mdi mdi-apps"></i>
+                                            <span>28</span>
                                         </td>
-                                        <td>27.03.2018</td>
-                                        <td>$345.98</td>
-                                        <td><span class="badge badge-pill badge-danger">Failed</span></td>
+                                        <td>
+                                        	<i class="mdi mdi-account-multiple"></i>
+                                        	128
+                                        </td>
+                                        <td><i class="mdi mdi-cash"></i>
+                                        	4406
+                                        </td>
+                                        <td>
+                                        	<span class="badge badge-pill badge-success">正常</span>
+                                        </td>
+                                        <td class="ml-1">
+                                        	<button class="btn btn-sm btn-primary ">编辑</button><button class="btn btn-sm btn-info " style="margin-left: 10px;">查看</button>
+                                        </td>
                                     </tr>
-                                    <tr>
+                                    <!--<tr>
                                         <td>
                                             <img src="assets/images/users/avatar-3.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Francisca S. Lobb</span>
+                                            <span>Francisca S. Lobb</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/master.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 8451</span>
+                                            <span>**** 8451</span>
                                         </td>
                                         <td>28.03.2018</td>
                                         <td>$1,250</td>
@@ -545,11 +454,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-1.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">James A. Wert</span>
+                                            <span >James A. Wert</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/amazon.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 2258</span>
+                                            <span >**** 2258</span>
                                         </td>
                                         <td>28.03.2018</td>
                                         <td>$145</td>
@@ -558,11 +467,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-4.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Dolores J. Pooley</span>
+                                            <span >Dolores J. Pooley</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/american-express.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 6950</span>
+                                            <span >**** 6950</span>
                                         </td>
                                         <td>29.03.2018</td>
                                         <td>$2,005.89</td>
@@ -571,11 +480,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-5.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Karen I. McCluskey</span>
+                                            <span >Karen I. McCluskey</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/discover.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 0021</span>
+                                            <span >**** 0021</span>
                                         </td>
                                         <td>31.03.2018</td>
                                         <td>$24.95</td>
@@ -584,11 +493,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-6.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Kenneth J. Melendez</span>
+                                            <span >Kenneth J. Melendez</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/visa.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 2840</span>
+                                            <span >**** 2840</span>
                                         </td>
                                         <td>27.03.2018</td>
                                         <td>$345.98</td>
@@ -597,11 +506,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-7.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Sandra M. Nicholas</span>
+                                            <span >Sandra M. Nicholas</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/master.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 2015</span>
+                                            <span >**** 2015</span>
                                         </td>
                                         <td>28.03.2018</td>
                                         <td>$1,250</td>
@@ -610,11 +519,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-8.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Ronald S. Taylor</span>
+                                            <span >Ronald S. Taylor</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/amazon.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 0325</span>
+                                            <span >**** 0325</span>
                                         </td>
                                         <td>28.03.2018</td>
                                         <td>$145</td>
@@ -623,11 +532,11 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-9.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Beatrice L. Iacovelli</span>
+                                            <span >Beatrice L. Iacovelli</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/discover.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 9058</span>
+                                            <span >**** 9058</span>
                                         </td>
                                         <td>29.03.2018</td>
                                         <td>$6,542.32</td>
@@ -636,16 +545,16 @@
                                     <tr>
                                         <td>
                                             <img src="assets/images/users/avatar-10.jpg" alt="user-pic" class="rounded-circle thumb-sm bx-shadow-lg" />
-                                            <span class="ml-2">Sylvia H. Parker</span>
+                                            <span >Sylvia H. Parker</span>
                                         </td>
                                         <td>
                                             <img src="assets/images/cards/discover.png" alt="user-card" height="24" />
-                                            <span class="ml-2">**** 2577</span>
+                                            <span >**** 2577</span>
                                         </td>
                                         <td>31.03.2018</td>
                                         <td>$24.95</td>
                                         <td><span class="badge badge-pill badge-danger">Failed</span></td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div> <!-- end table-responsive -->
@@ -653,30 +562,7 @@
                         </div> <!-- end card-box-->
                     </div> <!-- end col-->
 
-                    <div class="col-xl-3">
-                        <div class="card-box gradient-danger bx-shadow-lg">
-                            <h4 class="header-title text-white">Daily Sales</h4>
-                            <p class=" text-white">March 26 - April 01</p>
-                            <div class="mb-3 mt-4">
-                                <h2 class="font-weight-light  text-white">$3,558.48</h2>
-                            </div>
-
-                            <div class="pull-in margin-m-b-20">
-                                <canvas id="lineChart" height="122"></canvas>
-                            </div>
-                        </div> <!-- end card-box-->
-
-                        <div class="card-box">
-                            <div class="media">
-                                <img class="mr-3 rounded-circle bx-shadow-lg" src="assets/images/users/avatar-4.jpg" alt="Generic placeholder image" height="80">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Louis P. Wheeler</h5>
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                                </div>
-                            </div>
-                            <a href="" class="btn btn-info btn-block mt-3">Follow</a>
-                        </div> <!-- end card-box-->
-                    </div> <!-- end col -->
+                    
                 </div>
                 <!-- end row -->
 
