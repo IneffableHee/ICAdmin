@@ -837,7 +837,62 @@
                     "searching": false,
                     "lengthChange": false
                 });
+                
+                var hid = getUrlParam('hid');
+				console.log(hid);
+				pid = getCookie(hid);
+//				alert(hid+pid);
+				if(hid == null || pid == null){
+					
+				}
+                $.ajax({
+					url: "http://localhost:8080/icdata/department/getAll", 
+					data: { 
+						sid: pid
+					},
+					type: "POST", 
+					dataType: 'json', 
+					success: function(data) { 
+						result=JSON.parse(data);
+						if(result.status == 4){
+							window.location.href="auth-jumplogin.html";
+						}
+						alert(result.department);
+//						$("#name").text(result.userName);
+//						$("#userId").text(result.currentUserId);
+//						$("#menus").text(result.menu);
+						 // document.getElementById("name").innerHTML = result.userName;
+						 alert(JSON.stringify(data));
+					},
+					error: function(er) { 
+						alert(JSON.stringify(er));
+					}
+				});
             } );
+            
+            function getCookie(c_name) {
+				if (document.cookie.length > 0) {
+					c_start = document.cookie.indexOf(c_name + "=")
+					if (c_start != -1) {
+						c_start = c_start + c_name.length + 1
+						c_end = document.cookie.indexOf(";", c_start)
+						if (c_end == -1) c_end = document.cookie.length
+						return unescape(document.cookie.substring(c_start, c_end))
+					}
+				}
+				return null;
+			}
+
+
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) {
+					return unescape(r[2]);
+				} else {
+					return null;
+				}
+			}
         </script>
 
     </body>
