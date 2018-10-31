@@ -178,18 +178,18 @@
 							result=JSON.parse(data);
 							if(result.status==0){	  //状态为0,修改默认密码
 								document.cookie=result.token.substring(0,20)+"="+result.token;
-								if(result.icid != icid)
-									document.cookie="icid"+"="+result.icid;
+								if(result.guid != guid)
+									document.cookie="guid"+"="+result.guid;
 								window.location.href="auth-recoverpassword.html?hid="+result.token.substring(0,20);
 							}else if(result.status==1){		//状态为1,直接登陆
 								document.cookie=result.token.substring(0,20)+"="+result.token;
-								if(result.icid != icid)
-									document.cookie="icid"+"="+result.icid;
+								if(result.guid != guid)
+									document.cookie="guid"+"="+result.guid;
 								window.location.href="index.html?hid="+result.token.substring(0,20);
-							}else if(result.status==2){ //状态为2,需输入手机验证码
+							}else if(result.status==2){ //状态为2,更换设备需输入手机验证码
 								document.cookie=result.token.substring(0,20)+"="+result.token;
-								if(result.icid != icid)
-									document.cookie="icid"+"="+result.icid;
+								if(result.guid != icid)
+									document.cookie="guid"+"="+result.guid;
 								window.location.href="auth-yanzhengma.html?hid="+result.token.substring(0,20);
 							}else if(result.status==3){	//其他错误提示信息
 								if(result.msg.indexOf("密码") != -1)
