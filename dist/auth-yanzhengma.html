@@ -44,31 +44,32 @@
                                     </div>
 
                                     <div class="account-content">
-                                        <form class="form-horizontal" action="#">
-                                            <div class="form-group mb-3 text-center">
-                                                <p class="text-muted m-b-0 font-13">请输入手机号<span id="phone">182XXXX8888</span>收到的验证码进行身份验证</p>
+                                            <div class="mb-3 text-center">
+                                                <p class="text-muted m-b-0 font-13">请通过手机号<span id="tphone"></span>获取验证码进行身份验证</p>
                                             </div>
 
-                                            <div class="form-group mb-3">
+                                            <div class=" mb-3">
                                                 <label for="emailaddress" class="font-weight-medium">验证码:</label>
+                                                <span id="yzTip"></span>
                                                 <span id="pwTip" class="text-center" style="color: red;"><small></small></span>
                                                 <div class="row" style="width: 100%;margin-left: 0px;">
-                                                	<input class="form-control col-md-8" id="password" name="pw" type="password" required="" id="password" placeholder="6位数验证码">
+                                                	<input class="form-control col-md-8" id="verify" placeholder="6位数验证码">
                                                 	<div class="col-md-1"></div>
                                                 	<button class="btn btn-info float-right col-md-3" id="getyanzhengma">获取验证码</button>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row text-center">
+											<div class="alert alert-success" id="pwsuccess" style="display: none;">
+											  	<strong>修改成功!</strong> 即将跳转到<a href="auth-login.html" class="text-dark m-l-5" style="color: #5E5E5E;">登录页 </a>！<span id="timetologin">8s</span>
+											</div>
+                                            <div class=" row text-center">
                                                 <div class="col-12">
-                                                    <button class="btn btn-block btn-success waves-effect waves-light" type="submit">提交</button>
+                                                    <button class="btn btn-block btn-success waves-effect waves-light" id="submit">提交</button>
                                                 </div>
                                             </div>
-                                        </form> <!-- end form -->
 
                                         <div class="row mt-3">
                                             <div class="col-12 text-center">
-                                                <p class="text-muted"><a href="auth-login.html" class="text-dark m-l-5">切换账号</a></p>
+                                                <p class="text-muted"><a href="auth-login.html" class="text-dark m-l-5" id="tologin">切换账号</a></p>
                                             </div>
                                         </div> <!-- end row -->
 
@@ -98,25 +99,92 @@
 
 		<script>
 			$(document).ready(function() {
+				var a=GetRequest();
+				var tel=a['tel'];
+				$("#tphone").text(tel);
+			});
 				
-				var hid = getUrlParam('hid');
-				alert("hid"+hid);
-				var pid = getCookie(hid);
-				alert("pid"+pid);
-				var guid = getCookie("icid");
-				alert("guid"+guid);
+			
+			$("#getyanzhengma").click(function (){
+				var a=GetRequest();
+				var pid=a['hid'];
+				var tel=a['tel'];
+//				alert("hid"+pid+"tel"+tel);
+				$("#tphone").text(tel);
 				if(pid==null){
 					window.location.href="auth-login.html";
 					return;
-				}else if(guid==null){
-					window.location.href="auth-login.html";
+				}else{
+					$.ajax({
+						url: "http://localhost:8080/icdata/verify/get",        
+						data: {                          
+							tel:tel,
+							type:"login"
+						},
+						type: "POST",                  
+						dataType: 'json',              
+						success: function (data) {  
+//							alert(JSON.stringify(data));
+							result=JSON.parse(data);
+							if(result.status==4){	  //状态为4,发送失败
+								$("#yzTip").text("*"+result.msg);
+								$("#yzTip").css({color:"red"});
+							}else if(result.status==1){
+								var countdown = 60;
+								settime(countdown);
+							}
+						},
+						error: function (er) { 
+							$("#yzTip").text("*未知错误，请检查网络或联系管理员！");
+							$("#yzTip").css({color:"red"});
+						}
+					});
+				}
+			});
+			
+			$("#submit").click(function (){
+//				alert($("#verify").val());
+				if(!/^\d{6}$/.test($("#verify").val())){
+					$("#yzTip").css({color:"red"});
+					$("#yzTip").text("*请输入正确的验证码！");
 					return;
 				}
 				
-				var countdown = 40;
-				settime(countdown);
+				var a=GetRequest();
+				pid = getCookie(a['hid']);
+				var verify =$("#verify").val();
+//				alert(pid+verify);
+				$.ajax({
+					url: "http://localhost:8080/icdata/newDevice", 
+					data: { 
+						sid: pid,
+						verify:verify
+					},
+					type: "POST", 
+					dataType: 'json', 
+					success: function(data) { 
+						result=JSON.parse(data);
+						if(result.status==6){	  //状态为6，验证失败
+								$("#yzTip").css({color:"red"});
+								$("#yzTip").text(result.msg);
+						}else if(result.status==1){	//状态为1 修改成功，跳转登录页
+								$("#submit").css({display:"none"});
+								$("#pwsuccess").css({display:"block"});
+								$("#tologin").text("立即跳转");
+								var logtime = 4;
+								logintime(logtime);
+						}
+//						$("#name").text(result.userName);
+//						$("#userId").text(result.currentUserId);
+//						$("#menus").text(result.menu);
+						 // document.getElementById("name").innerHTML = result.userName;
+//						 alert(JSON.stringify(data));
+					},
+					error: function(er) { 
+						alert(JSON.stringify(er));
+					}
+				});
 			});
-				
 			
 			function settime(countdown) {	
 				x=document.getElementById("getyanzhengma");
@@ -133,6 +201,20 @@
 		        }
 		    }
 			
+			function logintime(logtime) {
+				var a=GetRequest();
+		        if (logtime == 0) {
+					window.location.href="index.html?hid="+a['hid'];
+		        } else {
+		        	$("#timetologin").html(logtime+"s");
+//		            document.getElementById("timetologin").innerHTML= countdown.toString();
+		            logtime--;
+		            setTimeout(function() {
+		                logintime(logtime);
+		            },1000);
+		        }
+		    }
+			
 			function getCookie(c_name) {
 				if (document.cookie.length > 0) {
 					c_start = document.cookie.indexOf(c_name + "=")
@@ -146,6 +228,18 @@
 				return null;
 			}
 			
+			function GetRequest() {
+			    var url = location.search; //获取url中"?"符后的字串
+			    var theRequest = new Object();
+			    if (url.indexOf("?") != -1) {
+			        var str = url.substr(1);
+			        strs = str.split("&");
+			        for (var i = 0; i < strs.length; i++) {
+			            theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+			        }
+			    }
+			    return theRequest;
+			}
 			function getUrlParam(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 				var r = window.location.search.substr(1).match(reg);

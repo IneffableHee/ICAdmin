@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>惠水县财政局一折通数据平台管理端</title>
+        <!--<title>惠水县财政局一折通数据平台管理端</title>-->
+        <title>农村业务部数据平台</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -161,7 +162,8 @@
                         <li class="float-left">
                             <a href="#" class="logo">
                                 <span class="logo-lg" style="font-size: 30px;color: #05b4ac;">
-                                	一折通数据平台管理端
+                                	<!--一折通数据平台管理端-->
+                                	农村业务部数据平台
                                     <!--<img src="assets/images/logo.png" alt="" height="20">-->
                                 </span>
                                 <span class="logo-sm">
@@ -845,6 +847,27 @@
 				if(hid == null || pid == null){
 					
 				}
+				
+				$.ajax({
+					url: "http://localhost:8080/icdata/home/getMenu", 
+					data: { 
+						sid: pid
+					},
+					type: "POST", 
+					dataType: 'json', 
+					success: function(data) { 
+						result=JSON.parse(data);
+	//					$("#name").text(result.userName);
+	//					$("#userId").text(result.currentUserId);
+	//					$("#menus").text(result.menu);
+						 // document.getElementById("name").innerHTML = result.userName;
+						 alert(JSON.stringify(data));
+					},
+					error: function(er) { 
+						alert(JSON.stringify(er));
+					}
+				});
+				return;
                 $.ajax({
 					url: "http://localhost:8080/icdata/department/getAll", 
 					data: { 

@@ -125,8 +125,7 @@
 		            e.preventDefault();
 		        });
 		        
-//		        qwe = getCookie("icid");
-//				if(TestGuid(qwe)){	//原设备登录，不需要验证码
+//				if(TestGuid(guid)){	//原设备登录，不需要验证码
 //					$("#yanzhengma").hide();
 //					$("#mima").show();
 //				}else{		////更换设备，验证码登录
@@ -161,12 +160,13 @@
 				var userName = $("input[name='name']").val();
 				var userPw = $("input[name='pw']").val();
 				var b = new Base64();
-				var icid = getCookie("icid");
+				var icid = getCookie("guid");
+				alert("guid:"+icid);
 				if(!checkLogin(userName,userPw)){
 					return;
 				}
 				$.ajax({
-						url: "http://localhost:8080/icdata/admin",        
+						url: "http://localhost:8080/icdata/admin/login",        
 						data: {                          
 							username:userName,
 							password:b.encode(userPw),
@@ -190,7 +190,7 @@
 								document.cookie=result.token.substring(0,20)+"="+result.token;
 								if(result.guid != icid)
 									document.cookie="guid"+"="+result.guid;
-								window.location.href="auth-yanzhengma.html?hid="+result.token.substring(0,20);
+								window.location.href="auth-yanzhengma.html?hid="+result.token.substring(0,20)+"&tel="+result.tel.toString();
 							}else if(result.status==3){	//其他错误提示信息
 								if(result.msg.indexOf("密码") != -1)
 									$("#pwTip").text(result.msg.toString());
