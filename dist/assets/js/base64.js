@@ -2,9 +2,8 @@
 *
 *  Base64 encode / decode
 *
-*  @author haitao.tu
-*  @date   2010-04-26
-*  @email  tuhaitao@foxmail.com
+*  @author heyong
+*  @date   2018-09-26
 *
 */
  
