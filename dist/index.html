@@ -115,7 +115,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
-                                 <span class="ml-1" id="userName">AAAdmin<i class="mdi mdi-chevron-down"></i> </span>
+                                 <span class="ml-1" id="userName" style="font-size: 26px;">AAAdmin<i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
                                 <!-- item-->
@@ -125,34 +125,29 @@
     
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-user"></i> <span>My Account</span>
+                                    <i class="dripicons-user"></i> <span>账号管理</span>
                                 </a>
     
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-gear"></i> <span>Settings</span>
+                                    <i class="dripicons-gear"></i> <span>个人设置</span>
                                 </a>
     
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-help"></i> <span>Support</span>
+                                    <i class="dripicons-lock"></i> <span>锁屏</span>
                                 </a>
     
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-lock"></i> <span>Lock Screen</span>
-                                </a>
-    
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-power"></i> <span>Logout</span>
+                                    <i class="dripicons-power"></i> <span>退出</span>
                                 </a>
     
                             </div>
                         </li>
-                        <li class="dropdown notification-list">
+                        <li class="dropdown notification-list" style="margin-left: 10px;">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
-                                <i class="mdi mdi-arrow-right-box "></i>
+                                <i class="mdi mdi-arrow-right-box mdi-24px"></i>
                             </a>
                         </li>
     
@@ -162,14 +157,20 @@
                         <li class="float-left">
                             <a href="#" class="logo">
                                 <span class="logo-lg" style="font-size: 30px;color: #05b4ac;">
-                                	一折通数据平台管理端
-                                	<!--农村业务部数据平台-->
+                                	<!--一折通数据平台管理端-->
+                                	农村业务部数据平台
                                     <!--<img src="assets/images/logo.png" alt="" height="20">-->
                                 </span>
                                 <span class="logo-sm">
                                     <img src="assets/images/logo_sm.png" alt="" height="28">
                                 </span>
                             </a>
+                        </li>
+                        <li class="app-search">
+                            <form>
+                                <input type="text" placeholder="搜索..." class="form-control">
+                                <button type="submit" class="sr-only"></button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -183,8 +184,8 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
-                            <li class="has-submenu menu" id="departmentManagement" style="display: none;">
-                                <a href="index.html" ><i class="mdi mdi-view-dashboard"></i>机构管理</a>
+                            <li class="has-submenu menu active" id="departmentManagement" style="display: none;">
+                                <a href="#" ><i class="mdi mdi-view-dashboard"></i>机构管理</a>
                             </li>
 
                             <li class="has-submenu menu" id="roleManagement" style="display: none;">
@@ -431,7 +432,7 @@
 				pid = getCookie(hid);
 //				alert(hid+pid);
 				if(hid == null || pid == null){
-					
+					window.location.href="auth-jumplogin.html";
 				}
 
 				$.ajax({
@@ -472,6 +473,11 @@
 						if(result.status == 3){
 							window.location.href="auth-jumplogin.html";
 						}
+						alert(JSON.stringify(data));
+						var jsdepartments = JSON.stringify(result.departments);
+//						document.cookie="jsdepartments"+"="+jsdepartments.toString();
+//						Setcookie("jsdepartments",jsdepartments);
+						alert(jsdepartments);
 						$("#departments").text(result.departments.length.toString());
 						$("#butiezhonglei").text(result.butiezhonglei);
 						$("#butiehushu").text(result.butiehushu);
@@ -485,8 +491,11 @@
 									'<th class="border-top-0 text-center">机构状态</th>'+
 									'<th class="border-top-0 text-center">操作</th>'+
 									'</tr></thead><tbody>';
+						var dpArry = new Array();
 						for (var s = 0; s < result.departments.length; s++) {
 							var stu = result.departments[s];
+//							alert(JSON.stringify(stu));
+							dpArry[s]=JSON.stringify(stu).toString();
 							str += "<tr>";
 							str += "<td><i class='mdi mdi-city tablemdi1'></i><span class='ml-2'>" + stu.departmentName + "</span></td>";
 							str += "<td><i class='mdi mdi-apps tablemdi2'></i><span>" + 2 + "</span></td>";
@@ -506,7 +515,8 @@
 						$('.tablemdi2').css({color:"#53bcea"});
 						$('.tablemdi3').css({color:"#22c28b"});
 						$('.tablemdi4').css({color:"#3096e5"});
-//						alert(JSON.stringify(data));
+						var res = JSON.stringify(JSON.stringify(result.departments));
+						sessionStorage.setItem('departments', res);
 					},
 					error: function(er) { 
 						alert(JSON.stringify(er));
@@ -515,14 +525,23 @@
             } );
 			
 			function departmentEdit(id){
+				alert("hid:"+hid+"did:"+id);
+				alert(sessionStorage.getItem('departments'));
+//				return;
 				window.location.href="department-edit.html?hid="+hid+"&did="+id;
 			}
 			
 			function departmentMessege(id){
+				alert("hid:"+hid+"did:"+id);
+				alert(sessionStorage.getItem('departments'));
+				return;
 				window.location.href="department-messege.html?hid="+hid+"&did="+id;
 			}
 			
 			function departmentDelete(id){
+				alert("hid:"+hid+"did:"+id);
+				alert(sessionStorage.getItem('departments'));
+				return;
 				window.location.href="department-messege.html?hid="+hid+"&did="+id;
 			}
         </script>
