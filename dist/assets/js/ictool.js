@@ -33,7 +33,7 @@ function getCookie(c_name) {
 }
 
 function Setcookie(name, value) {
-	if(getCookie(name)!="") delCookie(name);
+	if(getCookie(name) != "") delCookie(name);
 	//设置名称为name,值为value的Cookie
 	var expdate = new Date(); //初始化时间
 	expdate.setTime(expdate.getTime() + 30 * 60 * 1000); //时间单位毫秒
@@ -48,6 +48,14 @@ function delCookie(name) {
 	var cval = getCookie(name);
 	if(cval != null)
 		document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}
+
+function swalError(error) {
+	swal({
+		title: error,
+		type: 'error',
+		confirmButtonText: '确定'
+	})
 }
 
 //function getCookie(c_name) {

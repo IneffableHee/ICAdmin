@@ -116,7 +116,7 @@
 					return;
 				}else{
 					$.ajax({
-						url: "http://localhost:8080/icdata/verify/get",        
+						url: "http://localhost:8888/icdata/verify/get",        
 						data: {                          
 							tel:tel,
 							type:"login"
@@ -155,7 +155,7 @@
 				var verify =$("#verify").val();
 //				alert(pid+verify);
 				$.ajax({
-					url: "http://localhost:8080/icdata/newDevice", 
+					url: "http://localhost:8888/icdata/newDevice", 
 					data: { 
 						sid: pid,
 						verify:verify

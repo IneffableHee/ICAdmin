@@ -211,7 +211,7 @@
                                     </li>
                                     <li>
                                         <ul>
-                                            <li><a href="ui-sweetalerts.html">Sweet Alerts</a></li>
+                                            <li><a href="ui-sweetconsole.logs.html">Sweet console.logs</a></li>
                                             <li><a href="ui-range-slider.html">Range Slider</a></li>
                                             <li><a href="ui-ribbons.html">Ribbons</a></li>                 
                                         </ul>
@@ -430,24 +430,28 @@
             $(document).ready(function() {
                 hid = getUrlParam('hid');
 				pid = getCookie(hid);
-//				alert(hid+pid);
+//				console.log(hid+pid);
 				if(hid == null || pid == null){
 					window.location.href="auth-jumplogin.html";
 				}
 
 				$.ajax({
-					url: "http://localhost:8080/icdata/home/getMenu", 
+					url: "http://localhost:8888/icdata/home/getMenu", 
 					data: { 
 						sid: pid
 					},
 					type: "POST", 
 					dataType: 'json', 
 					success: function(data) { 
+						console.log(JSON.stringify(data));
 						result=JSON.parse(data);
 						$("#userName").text(result.userName);
 						if(result.status == 3){ //久未操作退出系统
 							window.location.href="auth-jumplogin.html";
 						}
+//						var menus = JSON.stringify(result.menu);
+						sessionStorage.setItem(hid+'menus',JSON.stringify(result.menu));
+						sessionStorage.setItem(hid+'name',result.userName);
 						for(var i=0;i<result.menu.length;i++){　//数组的遍历
 							if(document.getElementById(result.menu[i])){
 								$("ul.navigation-menu li#"+result.menu[i]).show();
@@ -456,12 +460,12 @@
 						}
 					},
 					error: function(er) { 
-						alert(JSON.stringify(er));
+						console.log(JSON.stringify(er));
 					}
 				});
 				
                 $.ajax({
-					url: "http://localhost:8080/icdata/home/getStatistics", 
+					url: "http://localhost:8888/icdata/home/getStatistics", 
 					data: { 
 						sid: pid
 					},
@@ -473,11 +477,11 @@
 						if(result.status == 3){
 							window.location.href="auth-jumplogin.html";
 						}
-						alert(JSON.stringify(data));
+						console.log(JSON.stringify(data));
 						var jsdepartments = JSON.stringify(result.departments);
 //						document.cookie="jsdepartments"+"="+jsdepartments.toString();
 //						Setcookie("jsdepartments",jsdepartments);
-						alert(jsdepartments);
+						console.log(jsdepartments);
 						$("#departments").text(result.departments.length.toString());
 						$("#butiezhonglei").text(result.butiezhonglei);
 						$("#butiehushu").text(result.butiehushu);
@@ -491,11 +495,9 @@
 									'<th class="border-top-0 text-center">机构状态</th>'+
 									'<th class="border-top-0 text-center">操作</th>'+
 									'</tr></thead><tbody>';
-						var dpArry = new Array();
 						for (var s = 0; s < result.departments.length; s++) {
 							var stu = result.departments[s];
-//							alert(JSON.stringify(stu));
-							dpArry[s]=JSON.stringify(stu).toString();
+//							console.log(JSON.stringify(stu));
 							str += "<tr>";
 							str += "<td><i class='mdi mdi-city tablemdi1'></i><span class='ml-2'>" + stu.departmentName + "</span></td>";
 							str += "<td><i class='mdi mdi-apps tablemdi2'></i><span>" + 2 + "</span></td>";
@@ -515,32 +517,31 @@
 						$('.tablemdi2').css({color:"#53bcea"});
 						$('.tablemdi3').css({color:"#22c28b"});
 						$('.tablemdi4').css({color:"#3096e5"});
-						var res = JSON.stringify(JSON.stringify(result.departments));
-						sessionStorage.setItem('departments', res);
+						var res = JSON.stringify(result.departments);
+						sessionStorage.setItem(hid+'departments', res);
 					},
 					error: function(er) { 
-						alert(JSON.stringify(er));
+						console.log(JSON.stringify(er));
 					}
 				});
             } );
 			
 			function departmentEdit(id){
-				alert("hid:"+hid+"did:"+id);
-				alert(sessionStorage.getItem('departments'));
+				console.log("hid:"+hid+"did:"+id);
+				console.log(sessionStorage.getItem(hid+'departments'));
 //				return;
 				window.location.href="department-edit.html?hid="+hid+"&did="+id;
 			}
 			
 			function departmentMessege(id){
-				alert("hid:"+hid+"did:"+id);
-				alert(sessionStorage.getItem('departments'));
-				return;
+				console.log("hid:"+hid+"did:"+id);
+				console.log(sessionStorage.getItem(hid+'departments'));
 				window.location.href="department-messege.html?hid="+hid+"&did="+id;
 			}
 			
 			function departmentDelete(id){
-				alert("hid:"+hid+"did:"+id);
-				alert(sessionStorage.getItem('departments'));
+				console.log("hid:"+hid+"did:"+id);
+				console.log(sessionStorage.getItem(hid+'departments'));
 				return;
 				window.location.href="department-messege.html?hid="+hid+"&did="+id;
 			}
