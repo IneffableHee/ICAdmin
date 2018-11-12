@@ -184,11 +184,11 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
-                            <li class="has-submenu menu active" id="departmentManagement" style="display: none;">
+                            <li class="has-submenu menu" id="departmentManagement" style="display: none;">
                                 <a href="#" ><i class="mdi mdi-view-dashboard"></i>机构管理</a>
                             </li>
 
-                            <li class="has-submenu menu" id="roleManagement" style="display: none;">
+                            <li class="has-submenu menu active" id="roleManagement" style="display: none;">
                                 <a href="#"><i class="mdi mdi-atom"></i>角色管理</a>
                                 <!--<ul class="submenu megamenu">
                                     <li>
@@ -257,69 +257,13 @@
                 <div class="page-title-box">
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">首页</a></li>
-                        <li class="breadcrumb-item active">机构管理</li>
+                        <li class="breadcrumb-item active">角色管理</li>
                     </ol>
-                    <h4 class="page-title">机构管理</h4>
+                    <h4 class="page-title">角色管理</h4>
                 </div>
                 <!-- End page title box -->
-                
-                <div class="row">
-                	<div class="col-xl-3">
-                		<div class="card-box widget-chart-one gradient-success bx-shadow-lg">
-                			<div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
-                				<i class="mdi mdi-city "></i>
-                			</div>
-                            <div class="widget-chart-one-content text-center">
-                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">机构数量</p>
-                                <h3 class="text-white" id="departments">49</h3>
-                            </div>
-                    	</div> <!-- end card-box-->
-                	</div>
-                	<div class="col-xl-3">
-                		<div class="card-box widget-chart-one gradient-info bx-shadow-lg">
-                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
-                				<i class="mdi mdi-apps"></i>
-                			</div>
-                            <div class="widget-chart-one-content text-center">
-                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴种类</p>
-                                <h3 class="text-white" id="butiezhonglei">300</h3>
-                            </div>
-                    	</div> <!-- end card-box-->
-                	</div>
-                	<div class="col-xl-3">
-                		<div class="card-box widget-chart-one gradient-success bx-shadow-lg">
-                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
-                				<i class="mdi mdi-account-multiple "></i>
-                			</div>
-                            <div class="widget-chart-one-content text-center">
-                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴户数</p>
-                                <h3 class="text-white" id="butiehushu">200000</h3>
-                            </div>
-                    	</div> <!-- end card-box-->
-                		</div>
-                	<div class="col-xl-3">
-                		<div class="card-box widget-chart-one gradient-primary bx-shadow-lg">
-                            <div class="float-left" style="color: white;font-size: 60px;margin-left: 40px;">
-                				<i class="mdi mdi-cash "></i>
-                			</div>
-                            <div class="widget-chart-one-content text-center">
-                                <p class="text-white mb-0 mt-2" style="font-size: 16px;">补贴金额</p>
-                                <h3 class="text-white" id="butiejine">500000</h3>
-                            </div>
-                    	</div> <!-- end card-box-->
-                	</div>
-                    
-					
-					
-                    
-                    
-                </div>
-                <!-- end row -->
-
 
                 <div class="row">
-
-
                     <div class="col-xl-12">
                         <div class="card-box">
                             <div class="dropdown float-right">
@@ -331,7 +275,7 @@
                                 </span>
                                 
                             </div>
-                            <h4 class="header-title mb-3">机构信息</h4>
+                            <h4 class="header-title mb-3">角色信息</h4>
 
                             <div class="table-responsive">
                                 <table class="table table-centered table-hover mb-0 " id="datatable">
@@ -490,10 +434,9 @@
 						$("#butiejine").text(result.butiejine);				
 						var str = '<thead>'+
 									'<tr>'+
-									'<th class="border-top-0">机构简称</th>'+
-									'<th class="border-top-0">补贴种类</th>'+
-									'<th class="border-top-0 text-center">补贴户数</th>'+
-									'<th class="border-top-0 text-center">补贴金额</th>'+
+									'<th class="border-top-0">角色名称</th>'+
+									'<th class="border-top-0">角色描述</th>'+
+									'<th class="border-top-0 text-center">用户数量</th>'+
 									'<th class="border-top-0 text-center">机构状态</th>'+
 									'<th class="border-top-0 text-center">操作</th>'+
 									'</tr></thead><tbody>';
@@ -501,10 +444,9 @@
 							var stu = result.departments[s];
 //							console.log(JSON.stringify(stu));
 							str += "<tr>";
-							str += "<td><i class='mdi mdi-city tablemdi1'></i><span class='ml-2'>" + stu.departmentName + "</span></td>";
+							str += "<td><i class='mdi mdi-account-card-details tablemdi1'></i><span class='ml-2'>" + stu.departmentName + "</span></td>";
 							str += "<td><i class='mdi mdi-apps tablemdi2'></i><span>" + 2 + "</span></td>";
 							str += "<td class = 'text-center'><i class='mdi mdi-account-multiple tablemdi3'></i>" + 3 + "</td>";
-							str += "<td class = 'text-center'><i class='mdi mdi-cash tablemdi4' ></i>" + 4 + "</td>";
 							str += "<td class = 'text-center'><span class='badge badge-pill badge-success'>" + "正常" + "</span></td>";
 							str += "<td class='ml-1 text-center'>" + 
 							'<button class="btn btn-sm btn-primary " onclick = "departmentEdit('+stu.departmentId+' )">编辑</button>'+

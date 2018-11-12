@@ -255,7 +255,7 @@
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
                         <li class="breadcrumb-item active">Invoice</li>
                     </ol>
-                    <h4 class="page-title">Invoice</h4>
+                    <h4 class="page-title">机构管理</h4>
                 </div>
                 <!-- End page title box -->
 
@@ -267,7 +267,7 @@
                             <!-- Logo & title -->
                             <div class="clearfix">
                                 <div class="float-left">
-                                	<i class="dripicons-power"></i>
+                                	<i class="mdi mdi-city mdi-24px" style="color: #05b4ac;"></i>
                                     <span class="m-0 d-print-none" id="dptName" style="font-size: 20px;"></span>
                                 </div>
                             </div>
@@ -275,18 +275,16 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="pull-left mt-3">
-                                        <p><b>Hello, Stanley Jones</b></p>
-                                        <p class="text-muted">Thanks a lot because you keep purchasing our products. Our company
-                                            promises to provide high quality products for you as well as outstanding
-                                            customer service for every transaction. </p>
+                                        
+                                        <p class="text-muted" id="dptDiscribe"> </p>
                                     </div>
 
                                 </div><!-- end col -->
                                 <div class="col-4 offset-2">
                                     <div class="mt-3 float-right">
-                                        <p class="m-b-10"><strong>Order Date : </strong> <span class="float-right"> &nbsp;&nbsp;&nbsp;&nbsp; Jan 17, 2016</span></p>
-                                        <p class="m-b-10"><strong>Order Status : </strong> <span class="float-right"><span class="badge badge-danger">Unpaid</span></span></p>
-                                        <p class="m-b-10"><strong>Order No. : </strong> <span class="float-right">000028 </span></p>
+                                        <p class="m-b-10"><strong>上次更新时间 : </strong> <span class="float-right"> &nbsp;&nbsp;&nbsp;&nbsp; 2018年9月10日</span></p>
+                                        <!--<p class="m-b-10"><strong>机构状态 : </strong> <span class="float-right"><span class="badge badge-success">正常</span></span></p>-->
+                                        <!--<p class="m-b-10"><strong>机构代码 : </strong> <span class="float-right">000028 </span></p>-->
                                     </div>
                                 </div><!-- end col -->
                             </div>
@@ -294,23 +292,16 @@
 
                             <div class="row mt-3">
                                 <div class="col-6">
-                                    <h6>Billing Address</h6>
-                                    <address class="line-h-24">
-                                        Stanley Jones<br>
-                                        795 Folsom Ave, Suite 600<br>
-                                        San Francisco, CA 94107<br>
-                                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                                    </address>
+                                    <h6>机构地址：</h6>
+                                    <h6>联系人：</h6>
+                                    <h6>联系电话：</h6>
+                                    
                                 </div> <!-- end col -->
 
                                 <div class="col-6">
-                                    <h6>Shipping Address</h6>
-                                    <address class="line-h-24">
-                                        Stanley Jones<br>
-                                        795 Folsom Ave, Suite 600<br>
-                                        San Francisco, CA 94107<br>
-                                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                                    </address>
+                                    <span>惠水县和平镇</span></br>
+                                    <span>张XX</span></br>
+                                    <span>123</span>
                                 </div> <!-- end col -->
                             </div> 
                             <!-- end row -->
@@ -321,31 +312,31 @@
                                         <table class="table mt-4 table-centered">
                                             <thead>
                                             <tr><th>#</th>
-                                                <th>Item</th>
-                                                <th style="width: 10%">Hours</th>
-                                                <th style="width: 10%">Hours Rate</th>
-                                                <th style="width: 10%" class="text-right">Total</th>
+                                                <th>补贴种类</th>
+                                                <th style="width: 10%">补贴户数</th>
+                                                <th style="width: 10%">本月发放</th>
+                                                <th style="width: 10%" class="text-right">累计发放</th>
                                             </tr></thead>
                                             <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>
-                                                    <b>Web Design</b> <br/>
+                                                    <b>XX补贴</b> <br/>
                                                     2 Pages static website - my website
                                                 </td>
                                                 <td>22</td>
-                                                <td>$30</td>
-                                                <td class="text-right">$660.00</td>
+                                                <td>￥30</td>
+                                                <td class="text-right">￥660.00</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>
-                                                    <b>Software Development</b> <br/>
+                                                    <b>XX补贴</b> <br/>
                                                     Invoice editor software - AB'c Software
                                                 </td>
                                                 <td>112.5</td>
-                                                <td>$35</td>
-                                                <td class="text-right">$3937.50</td>
+                                                <td>￥35</td>
+                                                <td class="text-right">￥3937.50</td>
                                             </tr>
 
                                             </tbody>
@@ -358,7 +349,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="clearfix pt-5">
-                                        <h6 class="text-muted">Notes:</h6>
+                                        <h6 class="text-muted">注:</h6>
 
                                         <small class="text-muted">
                                             All accounts are to be paid within 7 days from receipt of
@@ -371,9 +362,9 @@
                                 </div> <!-- end col -->
                                 <div class="col-6">
                                     <div class="float-right">
-                                        <p><b>Sub-total:</b> <span class="float-right">$4597.50</span></p>
-                                        <p><b>Discount (10%):</b> <span class="float-right"> &nbsp;&nbsp;&nbsp; $459.75</span></p>
-                                        <h3>$4137.75 USD</h3>
+                                        <p><b>补贴种类:</b> <span class="float-right">4</span></p>
+                                        <p><b>本月发放金额:</b> <span class="float-right"> &nbsp;&nbsp;&nbsp; ￥459.75</span></p>
+                                        <h3>￥4137.75 Total</h3>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div> <!-- end col -->
@@ -382,8 +373,8 @@
 
                             <div class="mt-4 mb-1">
                                 <div class="text-right d-print-none">
-                                    <a href="javascript:window.print()" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-printer mr-1"></i> Print</a>
-                                    <a href="#" class="btn btn-info waves-effect waves-light">Submit</a>
+                                    <a href="javascript:window.print()" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-printer mr-1"></i> 打印</a>
+                                    <a href="#" class="btn btn-info waves-effect waves-light">导出</a>
                                 </div>
                             </div>
                         </div>
@@ -539,6 +530,7 @@
 			var pid = null;
 			var did = null;
 			var currentDpt = null;
+			var url = localStorage.getItem("url");
 			$(document).ready(function() {
 				hid = getUrlParam('hid');
 				did = getUrlParam('did');
@@ -556,7 +548,7 @@
 				var menus = JSON.parse(sessionStorage.getItem(hid + 'menus'));
 				if(menus == null || menus == "" || menus.length == 0) {
 					$.ajax({
-						url: "http://localhost:8888/icdata/home/getMenu",
+						url: url+"home/getMenu",
 						data: {
 							sid: pid
 						},
@@ -582,7 +574,7 @@
 				var res = JSON.parse(departments);
 				if(res == null || res == "") {
 					$.ajax({
-						url: "http://localhost:8888/icdata/department/get",
+						url: url+"department/get",
 						data: {
 							sid: pid,
 							did: did
@@ -614,7 +606,7 @@
 					}
 				}
 
-				$("#dptName").text(currentDpt.departmentShortName);
+				$("#dptName").text(currentDpt.departmentName);
 				$("#dptDiscribe").text(currentDpt.departmentDescription);
 				$("#edDptName").val(currentDpt.departmentName);
 				$("#edDptsName").val(currentDpt.departmentShortName);
@@ -627,7 +619,7 @@
 				if(updepartment == null)
 					return;
 				$.ajax({
-						url: "http://localhost:8888/icdata/department/update",
+						url: url+"department/update",
 						data: {
 							sid: pid,
 							department:JSON.stringify(updepartment)

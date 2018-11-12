@@ -98,6 +98,7 @@
         <script src="assets/js/jquery.app.js"></script>
 
 		<script>
+			var url = localStorage.getItem("url");
 			$(document).ready(function() {
 				var a=GetRequest();
 				var tel=a['tel'];
@@ -116,7 +117,7 @@
 					return;
 				}else{
 					$.ajax({
-						url: "http://localhost:8888/icdata/verify/get",        
+						url: url+"verify/get",        
 						data: {                          
 							tel:tel,
 							type:"login"
@@ -155,7 +156,7 @@
 				var verify =$("#verify").val();
 //				alert(pid+verify);
 				$.ajax({
-					url: "http://localhost:8888/icdata/newDevice", 
+					url: url+"newDevice", 
 					data: { 
 						sid: pid,
 						verify:verify
